@@ -10,6 +10,12 @@
 ---
 
 ## 👨‍💻 Professional Summary & Engineering Philosophy
+<br />
+<div align="center">
+  <img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="600px" alt="Coding Animation" />
+</div>
+<br />
+
 I am a results-driven Software Engineer with a deep specialization in building scalable, high-performance applications. Over the past several years, I have transitioned from mastering the fundamentals of computer science to architecting complex, AI-augmented platforms. My work is defined by a commitment to code quality, system resilience, and the continuous exploration of agentic AI frameworks.
 
 My engineering philosophy revolves around three core tenets:
@@ -589,6 +595,12 @@ graph LR
 ---
 
 ## 📅 The Next 5 Years: A Forward-Looking Roadmap
+<br />
+<div align="center">
+  <img src="https://media.giphy.com/media/qgQUggCGvnPZG/giphy.gif" width="600px" alt="Hacker Animation" />
+</div>
+<br />
+
 The 40 projects above document the past. The list below defines the future. 
 - **Q3 2026:** Complete mastery of the Rust programming language for hyper-optimized, memory-safe system utilities.
 - **Q1 2027:** Architecting a fully decentralized, peer-to-peer Agentic AI network capable of collective swarm reasoning.
