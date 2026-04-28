@@ -25,6 +25,17 @@ My engineering philosophy revolves around three core tenets:
 
 ## 🛠️ Comprehensive Technical Arsenal
 
+### Main skills
+<p>
+  <img src="https://skillicons.dev/icons?i=cpp,python,java,js,ts,nodejs,express,react,html,css,django,mongodb,postgres,redis,mysql" /><br />
+  <img src="https://skillicons.dev/icons?i=aws,azure,docker,kubernetes,vercel,nginx,git,github,gitlab,jenkins,jest,postman" />
+</p>
+
+### Expanding Expertise
+<p>
+  <img src="https://skillicons.dev/icons?i=tensorflow,pytorch,opencv,spring,kafka,rabbitmq,grafana,prometheus,selenium,vue,bash" />
+</p>
+
 ### 🔷 Backend & Systems Engineering
 - **Advanced Python Development**: Expert in asynchronous programming (asyncio), decorator patterns, and meta-programming. Extensive experience with Django, Flask, and FastAPI for building high-throughput microservices.
 - **Node.js Ecosystem**: Deep understanding of the event loop, streams, and buffer management. Proficient in TypeScript for type-safe server-side logic and scalable API design.
