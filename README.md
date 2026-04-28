@@ -74,8 +74,7 @@ My engineering philosophy revolves around three core tenets:
 **Architecture:** Implemented a recursive descent parser to handle standard BODMAS/PEMDAS order of operations. The engine evaluates strings by converting them into Abstract Syntax Trees (AST) before execution.
 **Key Challenge:** Handling floating-point precision errors inherent to binary systems. Implemented arbitrary-precision arithmetic using custom struct definitions to guarantee 100% accuracy on financial calculations.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -86,7 +85,7 @@ graph TD
     E --> F((Result))
 ```
 
-</details>
+
 
 
 #### 3. unit-converter
@@ -104,8 +103,7 @@ graph TD
 **Architecture:** Built entirely without external database dependencies. State is managed via flat files (JSON/CSV) implementing strict file-locking mechanisms to prevent data corruption during concurrent write attempts by background indexing jobs.
 **Key Challenge:** File corruption during unexpected terminations. Engineered a sophisticated atomic write pattern where data is written to a temporary `.tmp` file and then renamed over the active database file using atomic OS-level system calls.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 sequenceDiagram
@@ -119,7 +117,7 @@ sequenceDiagram
     CLI->>OS: Unlock File
 ```
 
-</details>
+
 
 
 #### 6. number-guessing-game
@@ -132,8 +130,7 @@ sequenceDiagram
 **Architecture:** Implemented a robust data-fetching pipeline featuring intelligent exponential backoff for rate limiting, alongside a localized SQLite cache to serve redundant requests instantly and reduce API load.
 **Key Challenge:** Handling unpredictable API response latency. Refactored the core architecture to utilize asynchronous I/O (`asyncio` in Python), allowing the CLI to fetch data for multiple global cities concurrently rather than sequentially.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph LR
@@ -145,7 +142,7 @@ graph LR
     F --> C
 ```
 
-</details>
+
 
 
 #### 8. file-organizer
@@ -158,8 +155,7 @@ graph LR
 **Architecture:** Designed as a headless automation pipeline. It utilizes BeautifulSoup for static DOM parsing, combined with Selenium WebDriver instances for rendering JavaScript-heavy Single Page Applications (SPAs).
 **Key Challenge:** Evading aggressive bot-protection systems (Cloudflare, reCAPTCHA). Implemented randomized user-agent rotation, intelligent request jitter, and headless browser fingerprint masking to ensure uninterrupted data collection.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 flowchart TD
@@ -172,7 +168,7 @@ flowchart TD
     F --> G[(Store Data)]
 ```
 
-</details>
+
 
 
 #### 10. text-rpg-adventure
@@ -180,8 +176,7 @@ flowchart TD
 **Architecture:** The narrative flow is governed by a directed acyclic graph (DAG) where nodes represent story states and edges represent player choices. State persistence is handled via serialized save files.
 **Key Challenge:** Managing exponential complexity in narrative branching. Transitioned from hard-coded conditional logic to a declarative, data-driven architecture where storylines are parsed from external YAML files, radically simplifying content expansion.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 stateDiagram-v2
@@ -193,7 +188,7 @@ stateDiagram-v2
     GameOver --> MainMenu
 ```
 
-</details>
+
 
 
 ---
@@ -211,8 +206,7 @@ stateDiagram-v2
 **Architecture:** Leverages the modern JavaScript ecosystem (ES6+ Modules) to isolate state logic from UI rendering. Data persistence is achieved via the browser's LocalStorage API, formatted as structured JSON.
 **Key Challenge:** State synchronization across complex UI components. Engineered a custom Publish-Subscribe (PubSub) event bus to facilitate decoupled communication between the transaction entry forms and the dynamic chart rendering engines.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -222,7 +216,7 @@ graph TD
     B -.->|Subscribe| E[Total Calculation]
 ```
 
-</details>
+
 
 
 #### 13. sorting-visualizer
@@ -235,8 +229,7 @@ graph TD
 **Architecture:** Utilizes a highly optimized parsing engine compliant with the strict CommonMark specification. The architecture separates the raw text state from the sanitized DOM tree to prevent Cross-Site Scripting (XSS) vulnerabilities.
 **Key Challenge:** Severe performance degradation when rendering massively long documents (10,000+ words). Solved by implementing debounce logic on the keydown event listener and utilizing Virtual DOM diffing to only update changed nodes rather than re-rendering the entire document.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph LR
@@ -247,7 +240,7 @@ graph LR
     E --> F[Browser Render]
 ```
 
-</details>
+
 
 
 #### 15. url-shortener-node
@@ -255,8 +248,7 @@ graph LR
 **Architecture:** Built on the Node.js/Express stack. Uses a Base62 encoding algorithm to convert auto-incrementing database integer IDs into ultra-short, URL-safe alphanumeric slugs.
 **Key Challenge:** Database bottlenecking during viral traffic spikes. Implemented a Redis caching layer in front of the primary PostgreSQL database to serve frequent redirects from memory, reducing P99 latency from 45ms to 2ms.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -267,7 +259,7 @@ graph TD
     DB --> API
 ```
 
-</details>
+
 
 
 #### 16. chat-app-basics
@@ -275,8 +267,7 @@ graph TD
 **Architecture:** Built fundamentally around WebSockets using the Socket.io library. The server architecture uses event-driven listeners to broadcast messages efficiently across specific namespace "rooms" rather than polluting the global connection pool.
 **Key Challenge:** Connection instability over mobile networks. Engineered robust heartbeat mechanisms and automatic client-side reconnection logic with offline message queuing to ensure zero data loss during micro-disconnects.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 sequenceDiagram
@@ -287,7 +278,7 @@ sequenceDiagram
     Server->>Client C: Emit 'Message'
 ```
 
-</details>
+
 
 
 #### 17. quiz-engine
@@ -310,8 +301,7 @@ sequenceDiagram
 **Architecture:** A Node.js build pipeline that utilizes Gray-Matter to parse frontmatter metadata and EJS templating to inject content into HTML layouts. The pipeline inherently minimizes CSS and uglifies JS during the build phase.
 **Key Challenge:** Build times expanding exponentially as the blog grew. Refactored the core build script to utilize Node's `worker_threads` module, parallelizing the Markdown-to-HTML compilation process across all available CPU cores, reducing build time by 75%.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph LR
@@ -322,7 +312,7 @@ graph LR
     E --> F[Static Dist Folder]
 ```
 
-</details>
+
 
 
 ---
@@ -340,8 +330,7 @@ graph LR
 **Architecture:** Leverages the full power of the Next.js App Router. Employs Incremental Static Regeneration (ISR) to serve mathematically perfect static pages from edge CDNs while selectively regenerating them in the background when inventory databases change.
 **Key Challenge:** Balancing real-time inventory accuracy with the performance benefits of static rendering. Engineered a highly complex webhook pipeline where the headless CMS directly invalidates the Next.js static cache only for specific product URLs the exact millisecond a purchase is made.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 sequenceDiagram
@@ -355,7 +344,7 @@ sequenceDiagram
     Next.js API->>Edge CDN: Cache New Version
 ```
 
-</details>
+
 
 
 #### 23. auth-service-demo
@@ -363,8 +352,7 @@ sequenceDiagram
 **Architecture:** A heavily fortified Node.js API. It issues short-lived cryptographic JSON Web Tokens (JWT) for access, and cryptographically secure, HTTP-only, SameSite=Strict cookies for refresh tokens to fundamentally eliminate Cross-Site Scripting (XSS) attack vectors.
 **Key Challenge:** Implementing seamless, invisible token rotation. Engineered a highly complex Axios interceptor pipeline on the client side that automatically traps `401 Unauthorized` responses, silently requests a new access token via the secure HTTP-only refresh route, and re-fires the original request without the user ever noticing.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 sequenceDiagram
@@ -378,7 +366,7 @@ sequenceDiagram
     Auth API-->>Client: New JWT
 ```
 
-</details>
+
 
 
 #### 24. collab-whiteboard
@@ -386,8 +374,7 @@ sequenceDiagram
 **Architecture:** Built utilizing the HTML5 Canvas API coupled with an advanced WebSocket broadcasting backend. The system serializes drawing strokes as complex vector data arrays rather than raster images to keep network payload sizes virtually nonexistent.
 **Key Challenge:** Resolving simultaneous, conflicting edits on the same vector object (e.g., User A deletes while User B recolors). Implemented a fundamental version of Operational Transformation (OT) algorithms to mathematically merge conflicting intents based on timestamp vectors.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -399,7 +386,7 @@ graph TD
     Broadcast --> UserB
 ```
 
-</details>
+
 
 
 #### 25. ml-titanic-predictor
@@ -417,8 +404,7 @@ graph TD
 **Architecture:** Built on Apollo Server and Node.js. The architecture is defined by strongly-typed GraphQL schemas that meticulously describe the data graph, enabling rapid client iteration without requiring backend modifications for new endpoints.
 **Key Challenge:** The infamous "N+1 query problem" inherent to GraphQL resolving nested relationships. Integrated Facebook's `DataLoader` utility to intelligently batch and cache database queries within a single request context, turning 100 isolated SQL queries into 1 highly optimized batch query.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -430,7 +416,7 @@ graph TD
     B --> E[Formatted JSON Response]
 ```
 
-</details>
+
 
 
 #### 28. redis-cache-demo
@@ -443,8 +429,7 @@ graph TD
 **Architecture:** Deployed entirely on AWS. Users upload high-resolution images directly to an S3 Bucket. This PUT event triggers a serverless AWS Lambda function that downloads the image, resizes it into multiple thumbnails using the Sharp library, and deposits them into a secondary serving bucket.
 **Key Challenge:** The "Cold Start" problem inherent to serverless functions causing unacceptable latency for the first user. Mitigated this by refactoring the Lambda function from heavy Node.js to highly optimized Go, reducing the cold start initialization time from 800ms down to a blistering 40ms.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph LR
@@ -454,7 +439,7 @@ graph LR
     D --> E[(S3 Processed Bucket)]
 ```
 
-</details>
+
 
 
 #### 30. portfolio-v2-astro
@@ -472,8 +457,7 @@ graph LR
 **Architecture:** A full-stack Next.js application that heavily interfaces with the DALL-E 3 and Stable Diffusion REST APIs. The platform handles asynchronous webhook responses, allowing long-running generation tasks to resolve without holding open HTTP connections.
 **Key Challenge:** The astronomical cost of API hallucinations and bad user prompts. Engineered a complex "Prompt Enhancement" middleware pipeline using a lightweight LLM to silently rewrite user inputs into mathematically optimized engineering prompts before passing them to the expensive image generation models.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -483,7 +467,7 @@ graph TD
     D --> E[Client WebSocket Alert]
 ```
 
-</details>
+
 
 
 #### 32. rag-knowledge-base
@@ -491,8 +475,7 @@ graph TD
 **Architecture:** The ingestion pipeline slices documents into semantic chunks, generates high-dimensional mathematical vectors using OpenAI's embedding models, and stores them in a highly optimized ChromaDB vector database.
 **Key Challenge:** The LLM constantly hallucinating answers when the vector database returned irrelevant chunks. Solved by implementing an advanced algorithmic threshold constraint: if the cosine similarity of the returned vectors falls below 0.85, the system aggressively intercepts the prompt and forces the LLM to output "I do not have enough context to answer."
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -504,7 +487,7 @@ graph TD
     F --> G[Generate Answer]
 ```
 
-</details>
+
 
 
 #### 33. dapp-voting-system
@@ -517,8 +500,7 @@ graph TD
 **Architecture:** Built heavily upon the CrewAI framework. The system spins up independent "Agents"—each with specific roles, goals, and access to unique API tools (like web searching, code execution, and data scraping). They operate in an orchestrated hierarchy to solve problems autonomously.
 **Key Challenge:** Agents getting caught in infinite logic loops or obsessing over dead-end research paths. Engineered rigorous timeout constraints, strict "Max Iteration" limits, and a highly complex "Manager Agent" whose sole algorithmic purpose is to monitor other agents and forcefully terminate them if they begin hallucinating.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -530,7 +512,7 @@ graph TD
     C -.-> |Code| A
 ```
 
-</details>
+
 
 
 #### 35. k8s-monitoring
@@ -553,8 +535,7 @@ graph TD
 **Architecture:** A globally distributed system design featuring geolocation-based DNS routing (AWS Route 53), multiple redundant API clusters, and a heavily sharded database architecture. The core innovation relies on a pre-allocated "Key Generation Service" to prevent database write collisions across regions.
 **Key Challenge:** Preventing catastrophic database degradation as the URL mapping table approaches billions of rows. Solved by implementing rigorous database sharding logic (horizontal partitioning) based on the hash of the short-URL, distributing the load mathematically evenly across 10 distinct, independent database instances.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph TD
@@ -566,7 +547,7 @@ graph TD
     E --> G[(Sharded DB 1..10)]
 ```
 
-</details>
+
 
 
 #### 39. microservices-orchestrator
@@ -574,8 +555,7 @@ graph TD
 **Architecture:** Abandons synchronous HTTP communication in favor of asynchronous, event-driven messaging. Utilizes RabbitMQ as a centralized message broker. Services communicate by publishing strictly defined Protobuf events to topic exchanges, entirely decoupling producers from consumers.
 **Key Challenge:** "Distributed Tracing" and figuring out where an error occurred when a single user action touches 8 different microservices. Implemented the OpenTelemetry standard across all services, injecting unique, traceable Correlation IDs into every single message payload, allowing a single request to be visualized from end-to-end across the entire network.
 
-<details>
-<summary><b>Architecture Diagram</b> (Click to expand)</summary>
+
 
 ```mermaid
 graph LR
@@ -586,7 +566,7 @@ graph LR
     D --> F[Send Confirmation]
 ```
 
-</details>
+
 
 
 #### 40. distributed-compute-engine
