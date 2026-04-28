@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/trivedidevh7-wq/trivedidevh7-wq/main/banner_v2.png" width="100%" alt="Dev Trivedi Banner" />
+  <img src="https://raw.githubusercontent.com/trivedidevh7-wq/trivedidevh7-wq/main/banner_v3.png" width="100%" alt="Dev Trivedi Banner" />
 </div>
 
 <div align="center">
